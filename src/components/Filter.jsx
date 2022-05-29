@@ -1,4 +1,4 @@
-export const Filter = ({ filter, setName, inputId, type, inputName, value }) => {
+export const Filter = ({ setName, inputId, type, inputName, value }) => {
   return (
     <input
       onChange={setName}

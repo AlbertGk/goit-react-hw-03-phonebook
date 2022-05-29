@@ -24,8 +24,10 @@ class App extends Component {
   };
 
   componentDidMount() { 
-    const storageArray = loadFromLocalStorage('contacts');
-    this.setState({ contacts: storageArray });
+    if (this.state.contacts.length > 0) {
+      const storageArray = loadFromLocalStorage('contacts');
+      this.setState({ contacts: storageArray });
+    }
   }
 
   componentDidUpdate() {

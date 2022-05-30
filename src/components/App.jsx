@@ -24,16 +24,19 @@ class App extends Component {
   };
 
   componentDidMount() { 
-    if (this.state.contacts.length > 0) {
-      const storageArray = loadFromLocalStorage('contacts');
+    const storageArray = loadFromLocalStorage('contacts');
+    if (storageArray) {
       this.setState({ contacts: storageArray });
+      console.log(`load: ${this.state.contacts}`);
+      console.log(`len: ${this.state.contacts.length}`);
     }
   }
 
   componentDidUpdate() {
     if (this.state.name === '') {
       saveInLocalStorage('contacts', this.state.contacts);
-      console.log('test')
+      console.log(`save: ${this.state.contacts}`);
+      console.log(`len: ${this.state.contacts.length}`);
     }
    }
 
